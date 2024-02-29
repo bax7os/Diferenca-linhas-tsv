@@ -1,6 +1,8 @@
 import os
 import re
 
+# modelo do nome do arquivo: nº - frames - tipo - nome_paciente
+
 
 # Generalizando arquivos 
 def listar_arquivos_com_extensao(diretorio, extensao):
@@ -15,11 +17,13 @@ def listar_arquivos_com_extensao(diretorio, extensao):
 def contar_linhas_arquivo(arquivo):
     with open(arquivo, 'r') as f:
         linhas = f.readlines()
+        '''
         if arquivo == tsv:
-            new = len(linhas) - 1
+            new = len(linhas)
         else:
             new = len(linhas)
-    return new
+        '''
+    return len(linhas)
 
 #Diferença entre a quantidade de linhas dos arquivos
 def diferenca_linhas(arquivo_tsv, arquivo_csv):
@@ -37,7 +41,7 @@ def salvar_resultado_arquivo(arquivo, diferenca, nome_arquivo):
 diretorio = '.'  # Diretório atual, pode ser alterado para o diretório desejado
 arquivos_tsv = listar_arquivos_com_extensao(diretorio, 'tsv')
 arquivos_csv = listar_arquivos_com_extensao(diretorio, 'csv')
-arquivo_resultado = 'resultado.tsv'
+arquivo_resultado = 'saida/resultado.tsv'
 
 # Verificar se há pelo menos um arquivo TSV e um arquivo CSV
 if not arquivos_tsv or not arquivos_csv:
