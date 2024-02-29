@@ -2,7 +2,7 @@ import os
 import re
 
 # modelo do nome do arquivo: nº - frames - tipo - nome_paciente
-
+# valores negativos se o csv for maior
 
 # Generalizando arquivos 
 def listar_arquivos_com_extensao(diretorio, extensao):
@@ -40,7 +40,11 @@ def salvar_resultado_arquivo(arquivo, diferenca, nome_arquivo):
 
 diretorio = '.'  # Diretório atual, pode ser alterado para o diretório desejado
 arquivos_tsv = listar_arquivos_com_extensao(diretorio, 'tsv')
+
 arquivos_csv = listar_arquivos_com_extensao(diretorio, 'csv')
+
+
+
 arquivo_resultado = 'saida/resultado.tsv'
 
 # Verificar se há pelo menos um arquivo TSV e um arquivo CSV
